@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    /* This is the small area where the No button is allowed to move */
+    .button-area {
+      position: relative;
+      width: 350px;     /* controls how wide the escape area is */
+      height: 200px;    /* controls how tall the escape area is */
+      margin: 0 auto;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+    }
+
+    #yes {
+      background-color: #ff4d6d;
+      color: white;
+      position: absolute;
+      left: 30px;
+      top: 45px;
+    }
+
+    #no {
+      background-color: #ccc;
+      position: absolute;
+      left: 190px;
+      top: 45px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Gabryshka, will you be my Valentine? 💘</h1>
+
+    <div class="button-area" id="area">
+      <button id="yes">YES</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+  <script>
+    const area = document.getElementById("area");
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+
+    function moveNoButtonWithinArea() {
+      const areaRect = area.getBoundingClientRect();
+      const noRect = noBtn.getBoundingClientRect();
+
+      const maxX = areaRect.width - noBtn.offsetWidth;
+      const maxY = areaRect.height - noBtn.offsetHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+
+    // Only escape when the cursor gets close to the No button
+    noBtn.addEventListener("mouseover", moveNoButtonWithinArea);
+
+    yesBtn.addEventListener("click", () => {
+      window.location.href = "yes.html";
+    });
+  </script>
+
+</body>
+</html>
+
+
+
