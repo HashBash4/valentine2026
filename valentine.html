@@ -1,113 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Valentine?</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine</title>
 
-    .card {
-      background: white;
-      padding: 40px;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      position: relative;
-    }
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e0f2ff, #9ed8ff);
+  }
 
-    /* This is the small area where the No button is allowed to move */
-    .button-area {
-      position: relative;
-      width: 350px;     /* controls how wide the escape area is */
-      height: 200px;    /* controls how tall the escape area is */
-      margin: 0 auto;
-    }
+  .card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 50px 60px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(6px);
+    position: relative;
+  }
 
-    button {
-      font-size: 18px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-    }
+  h1 {
+    margin-bottom: 40px;
+    color: #2a4f6e;
+    font-weight: 600;
+  }
 
-    #yes {
-      background-color: #ff4d6d;
-      color: white;
-      position: absolute;
-      left: 30px;
-      top: 45px;
-    }
+  .button-area {
+    position: relative;
+    width: 360px;
+    height: 200px;
+    margin: 0 auto;
+  }
 
-    #no {
-      background-color: #ccc;
-      position: absolute;
-      left: 190px;
-      top: 45px;
-    }
-  </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine</title>
-    <style>
-        body {
-            background: linear-gradient(135deg, #ADD8E6, #87CEEB);
-            font-family: Arial, sans-serif;
-            color: #333;
-        }
-    </style>
+  button {
+    font-size: 18px;
+    padding: 12px 28px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  #yes {
+    background: linear-gradient(135deg, #5cc6ff, #3399ff);
+    color: white;
+    position: absolute;
+    left: 40px;
+    top: 60px;
+    box-shadow: 0 8px 20px rgba(51, 153, 255, 0.4);
+  }
+
+  #yes:hover {
+    transform: scale(1.08);
+  }
+
+  #no {
+    background-color: #d0dbe5;
+    color: #2a4f6e;
+    position: absolute;
+    left: 200px;
+    top: 60px;
+  }
+
+</style>
 </head>
+
 <body>
 
-  <div class="card">
-    <h1>Gabryshka, will you be my Valentine? 💘</h1>
+<div class="card">
+  <h1>Gabryshka, will you be my Valentine? 💙</h1>
 
-    <div class="button-area" id="area">
-      <button id="yes">YES</button>
-      <button id="no">No</button>
-    </div>
+  <div class="button-area" id="area">
+    <button id="yes">YES</button>
+    <button id="no">No</button>
   </div>
+</div>
 
-  <script>
-    const area = document.getElementById("area");
-    const noBtn = document.getElementById("no");
-    const yesBtn = document.getElementById("yes");
+<script>
+  const area = document.getElementById("area");
+  const noBtn = document.getElementById("no");
+  const yesBtn = document.getElementById("yes");
 
-    function moveNoButtonWithinArea() {
-      const areaRect = area.getBoundingClientRect();
-      const noRect = noBtn.getBoundingClientRect();
+  function moveNoButtonWithinArea() {
+    const maxX = area.clientWidth - noBtn.offsetWidth;
+    const maxY = area.clientHeight - noBtn.offsetHeight;
 
-      const maxX = areaRect.width - noBtn.offsetWidth;
-      const maxY = areaRect.height - noBtn.offsetHeight;
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
 
-      const x = Math.random() * maxX;
-      const y = Math.random() * maxY;
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+  }
 
-      noBtn.style.left = `${x}px`;
-      noBtn.style.top = `${y}px`;
-    }
+  noBtn.addEventListener("mouseover", moveNoButtonWithinArea);
 
-    // Only escape when the cursor gets close to the No button
-    noBtn.addEventListener("mouseover", moveNoButtonWithinArea);
+  yesBtn.addEventListener("click", () => {
+    window.location.href = "yes.html";
+  });
+</script>
 
-    yesBtn.addEventListener("click", () => {
-      window.location.href = "yes.html";
-    });
-  </script>
-
-    <h1>Happy Valentine&apos;s Day!</h1>
-    <p>This is a special day to celebrate love.</p>
 </body>
-</html>
-
-
-
 </html>
