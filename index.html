@@ -59,13 +59,13 @@
   </style>
 </head>
 <body>
-  <h1>One tiny check 😄</h1>
-  <p>Select all pictures of <strong>croissants</strong> to continue.</p>
+  <h1>I am not a robot. Check </h1>
+  <p>Select all pictures that you associate with your boo to continue.</p>
 
   <div class="grid" id="grid"></div>
 
   <div class="actions">
-    <button id="checkBtn">Check</button>
+    <button id="checkBtn">Check Answers</button>
     <button id="continueBtn">Continue</button>
   </div>
 
@@ -124,7 +124,7 @@
         continueBtn.classList.add("enabled");
         continueBtn.disabled = false;
       } else {
-        msg.textContent = "Not quite 😅 Try again.";
+        msg.textContent = "Not quite, Try again. Hint: You have to select 7 images. And cheese is not one of them;)";
         continueBtn.classList.remove("enabled");
         continueBtn.disabled = true;
       }
@@ -140,6 +140,7 @@
   </script>
 </body>
 </html>
+
 
 
 
