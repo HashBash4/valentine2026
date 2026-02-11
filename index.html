@@ -120,7 +120,7 @@
     document.getElementById("checkBtn").addEventListener("click", () => {
       const ok = arraysEqualAsSets(correct, selected);
       if (ok) {
-        msg.textContent = "Verified ✅";
+        msg.textContent = "Good job boo. U are ready for the next question.";
         continueBtn.classList.add("enabled");
         continueBtn.disabled = false;
       } else {
@@ -140,6 +140,7 @@
   </script>
 </body>
 </html>
+
 
 
 
